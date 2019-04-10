@@ -1,0 +1,42 @@
+<div class="layout-sidebar" [ngClass]="{'layout-sidebar-active':template.mobileMenuActive}">
+  <ul class="layout-menu" (click)="template.hideMobileMenu($event)">
+    <li>
+      <a [routerLink]="['/home']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <i class="fa fa-globe"></i>
+        <span>Home</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/pessoa-fisica']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <i class="fa fa-check"></i>
+        <span>Pessoa Física</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/pessoa-juridica']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <i class="fa fa-table"></i>
+        <span>Pessoa Jurídica</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/deposito']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <i class="fa fa-columns"></i>
+        <span>Depósito</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/saque']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <i class="fa fa-window-maximize"></i>
+        <span>Saque</span>
+      </a>
+    </li>
+    <li>
+      <a (click)="template.logout($event)">
+        <i class="fa fa-bars"></i>
+        <span>Sair</span>
+      </a>
+    </li>
+   
+  </ul>
+
+</div>
