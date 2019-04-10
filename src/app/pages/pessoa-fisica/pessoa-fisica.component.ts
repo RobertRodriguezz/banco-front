@@ -6,6 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pessoa-fisica.component.css']
 })
 export class PessoaFisicaComponent implements OnInit {
+  visibleSidebar1;
+
+  visibleSidebar2;
+
+  visibleSidebar3;
+
+  visibleSidebar4;
+
+  visibleSidebar5;
 
   constructor() { }
 

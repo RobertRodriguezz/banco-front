@@ -4,6 +4,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 // primeng components
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {PanelModule} from 'primeng/panel';
+import {TableModule} from 'primeng/table';
 
 // app components
 import { AppComponent } from './app.component';
@@ -48,7 +49,8 @@ import { SaqueComponent } from './pages/saque/saque.component';
     KeycloakAngularModule,
     PanelModule,
     routing,
-    HttpClientModule
+    HttpClientModule,
+    TableModule
   ],
   providers: [
     {
