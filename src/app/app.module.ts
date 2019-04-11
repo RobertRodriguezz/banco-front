@@ -27,6 +27,7 @@ import { PessoaFisicaComponent } from './pages/pessoa-fisica/pessoa-fisica.compo
 import { PessoaJuridicaComponent } from './pages/pessoa-juridica/pessoa-juridica.component';
 import { DepositoComponent } from './pages/deposito/deposito.component';
 import { SaqueComponent } from './pages/saque/saque.component';
+import { PessoaFisicaService } from './service/pessoa-fisica/pessoa-fisica.service';
 
 
 @NgModule({
@@ -53,11 +54,13 @@ import { SaqueComponent } from './pages/saque/saque.component';
     TableModule
   ],
   providers: [
+    PessoaFisicaService,
     {
       provide: APP_INITIALIZER,
       useFactory: initializer,
       multi: true,
-      deps: [KeycloakService]
+      deps: [KeycloakService],    
+      
     },{
       provide: HTTP_INTERCEPTORS,
       useClass: KeycloakBearerInterceptor,

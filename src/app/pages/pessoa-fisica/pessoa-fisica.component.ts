@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PessoaFisicaService } from 'src/app/service/pessoa-fisica/pessoa-fisica.service';
 
 @Component({
   selector: 'app-pessoa-fisica',
@@ -6,19 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pessoa-fisica.component.css']
 })
 export class PessoaFisicaComponent implements OnInit {
-  visibleSidebar1;
 
-  visibleSidebar2;
 
-  visibleSidebar3;
+  pessoas:any[]
 
-  visibleSidebar4;
+  Robert = 'Marcelos';
 
-  visibleSidebar5;
+  constructor(private pessoafisica: PessoaFisicaService) {
 
-  constructor() { }
+
+   }
 
   ngOnInit() {
+    this.pessoafisica.findAll(pessoas => {
+      console.log()
+      
+    }, erro =>{
+
+    });
   }
 
 }
