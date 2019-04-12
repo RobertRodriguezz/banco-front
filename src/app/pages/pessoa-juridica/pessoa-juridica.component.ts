@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { getMaxListeners } from 'cluster';
 
 @Component({
   selector: 'app-pessoa-juridica',
@@ -6,10 +7,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pessoa-juridica.component.css']
 })
 export class PessoaJuridicaComponent implements OnInit {
+  
+  pj: any[] = [
+  {
+    dsNomeFantasia:"robert",
+    dsRazaoSocial:"212125",
+    dsCnpj:"110-149-759-99",
+    dsEmail:'robertcastilhos',
 
-  constructor() { }
-
-  ngOnInit() {
+  },
+  {
+    cnpj:"00000000",
+    nome:"robert",
+    email:"ro@hotmail.com",
   }
+];
+  constructor() { }
+  
+  ngOnInit() {
+    
+    
+        }
 
 }

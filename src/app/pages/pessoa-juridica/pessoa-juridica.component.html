@@ -1,3 +1,23 @@
-<p>
-  pessoa-juridica works!
-</p>
+
+
+<h1 class="first">Basic</h1>
+<p-table [value]=pj>
+    <ng-template pTemplate="header">
+        <tr>
+            <!--dsNome dsRazaoSocial dsCNPJ dsTelefone-->
+            <th>CNPJ</th>
+            <th>Email</th>
+            <th>Nome</th>
+            
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-pj>  
+     <tr>
+            <td>{{pj.cnpj}}</td>
+            <td>{{pj.email}}</td>
+            <td>{{pj.nome}}</td>    
+        </tr>
+    </ng-template>
+</p-table>
+
+
