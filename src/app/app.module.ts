@@ -1,10 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
 // primeng components
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {PanelModule} from 'primeng/panel';
 import {TableModule} from 'primeng/table';
+import {ButtonModule} from 'primeng/button';
+import {DialogModule} from 'primeng/dialog';
 
 // app components
 import { AppComponent } from './app.component';
@@ -51,7 +54,10 @@ import { PessoaFisicaService } from './service/pessoa-fisica/pessoa-fisica.servi
     PanelModule,
     routing,
     HttpClientModule,
-    TableModule
+    TableModule,
+    ButtonModule,
+    DialogModule,
+    FormsModule
   ],
   providers: [
     PessoaFisicaService,

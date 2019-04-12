@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class PessoaFisicaService {
-   url = 'rs/v1/pessoafisica';
+   url = 'http://54.185.223.116:8080/banco/rs/v1/pessoafisica';
   constructor( private http: HttpClient) { }
 
   findAll(sucess, err){
