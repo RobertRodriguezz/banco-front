@@ -10,22 +10,14 @@ import { PessoaFisicaService } from 'src/app/service/pessoa-fisica/pessoa-fisica
 export class PessoaFisicaComponent implements OnInit {
 
   displayDialog: boolean;    
-  pessoas:any[] = [
-    {
-      dsNome:"Marcelos Delgado Tuelher Dias",
-      dtNasc:"17/10/1993",
-      dsCpf:"09239528962",
-      dsEmail:"marcelostuelher@gmail.com",
-      dsTelefone:"(48)9 88029549"
-    }
-  ]
+  pessoas : any[] = [];
 
   constructor(private pessoafisica: PessoaFisicaService) {  }
 
   ngOnInit() {
-    this.pessoafisica.findAll(pessoa => {
-      console.log()
-      
+    this.pessoafisica.findAll(pessoas => {
+      this.pessoas = pessoas;
+        console.log(this.pessoas);
     }, erro =>{
 
     });

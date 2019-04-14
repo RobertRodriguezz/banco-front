@@ -31,6 +31,8 @@ import { PessoaJuridicaComponent } from './pages/pessoa-juridica/pessoa-juridica
 import { DepositoComponent } from './pages/deposito/deposito.component';
 import { SaqueComponent } from './pages/saque/saque.component';
 import { PessoaFisicaService } from './service/pessoa-fisica/pessoa-fisica.service';
+import { CadastrarPessoaFisicaComponent } from './pages/cadastrar-pessoa-fisica/cadastrar-pessoa-fisica.component';
+import { CadastrarPessoaJuridicaComponent } from './pages/cadastrar-pessoa-juridica/cadastrar-pessoa-juridica.component';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import { PessoaFisicaService } from './service/pessoa-fisica/pessoa-fisica.servi
     PessoaFisicaComponent,
     PessoaJuridicaComponent,
     DepositoComponent,
-    SaqueComponent
+    SaqueComponent,
+    CadastrarPessoaFisicaComponent,
+    CadastrarPessoaJuridicaComponent
   ],
   imports: [
     BrowserModule,
