@@ -10,6 +10,7 @@ import { SaqueComponent } from '../pages/saque/saque.component';
 import { HomeComponent } from '../components/template/home/home.component';
 import { CadastrarPessoaFisicaComponent } from '../pages/cadastrar-pessoa-fisica/cadastrar-pessoa-fisica.component';
 import { CadastrarPessoaJuridicaComponent } from '../pages/cadastrar-pessoa-juridica/cadastrar-pessoa-juridica.component';
+import { ContaComponent } from '../pages/conta/conta.component';
 
 
 const appRoutes: Routes = [
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
     {path: 'deposito', component: DepositoComponent, canActivate: [AuthGuard]},
     {path: 'saque', component: SaqueComponent, canActivate: [AuthGuard]},
     {path: 'teste', component: TesteComponent, canActivate: [AuthGuard]},
+    {path: 'conta', component: ContaComponent, canActivate: [AuthGuard]},
     {path:'**',redirectTo:'home', pathMatch: 'full' }
 ];
 

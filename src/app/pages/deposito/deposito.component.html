@@ -1,3 +1,50 @@
-<p>
-  deposito works!
-</p>
+<form name="form" [formGroup]="form" (ngSubmit)="salvar()">
+  <p-panel>
+    <p-header>
+      <div class="ui-helper-clearfix">
+        <span class="ui-panel-title">Depósito</span>
+      </div>
+    </p-header>
+
+
+
+    <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ui-md-8">
+          <div class="u-inputgroup ">
+            <label for="idConta">Conta</label>
+            <div class="u-inputgroup input-group app-input">
+              <p-autoComplete id="idConta" [suggestions]="results" field="dsPessoa" placeholder="Conta" formControlName="idConta"
+                (completeMethod)="search($event)" [autoHighlight]="true" emptyMessage="Conta não encontrada."
+                scrollHeight="130px">
+                
+                <ng-template let-value pTemplate="item">
+                  <div class="ui-helper-clearfix">
+                    <span style="font-size:18px;float:left;margin:10px 10px 0 0">{{value.nrConta}} ( {{value.dsPessoa}} )</span>
+                  </div>
+                </ng-template>
+              </p-autoComplete>
+              <app-error-msg [control]="form.get('idConta')" label="Conta"></app-error-msg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ui-md-4">
+          <div class="u-inputgroup ">
+            <label for="vrOperacao">Valor</label>
+            <div class="u-inputgroup input-group app-input">
+              <input id="vrOperacao" type="text" placeholder="Valor do depósito" pInputText formControlName="vrOperacao">
+              <app-error-msg [control]="form.get('vrOperacao')" label="Valor"></app-error-msg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <p-footer>
+        <button pButton type="submit" label="Depositar" icon="pi pi-check"
+          class="ui-button-raised ui-button-success"></button>
+      </p-footer>
+  </p-panel>
+</form>

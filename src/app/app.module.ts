@@ -3,13 +3,14 @@ import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 // primeng components
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {PanelModule} from 'primeng/panel';
-import {TableModule} from 'primeng/table';
-import {ButtonModule} from 'primeng/button';
-import {DialogModule} from 'primeng/dialog';
-import {InputTextModule} from 'primeng/inputtext';
-import {MessageModule} from 'primeng/message';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PanelModule } from 'primeng/panel';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
+import { InputTextModule } from 'primeng/inputtext';
+import { MessageModule } from 'primeng/message';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 
 // app components
 import { AppComponent } from './app.component';
@@ -36,6 +37,8 @@ import { SaqueComponent } from './pages/saque/saque.component';
 import { PessoaFisicaService } from './service/pessoa-fisica/pessoa-fisica.service';
 import { CadastrarPessoaFisicaComponent } from './pages/cadastrar-pessoa-fisica/cadastrar-pessoa-fisica.component';
 import { CadastrarPessoaJuridicaComponent } from './pages/cadastrar-pessoa-juridica/cadastrar-pessoa-juridica.component';
+import { ContaComponent } from './pages/conta/conta.component';
+import { GerarContaDialogComponent } from './dialogs/gerar-conta-dialog/gerar-conta-dialog.component';
 
 
 @NgModule({
@@ -53,7 +56,9 @@ import { CadastrarPessoaJuridicaComponent } from './pages/cadastrar-pessoa-jurid
     SaqueComponent,
     CadastrarPessoaFisicaComponent,
     CadastrarPessoaJuridicaComponent,
-    ErrorMsgComponent
+    ErrorMsgComponent,
+    ContaComponent,
+    GerarContaDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +73,8 @@ import { CadastrarPessoaJuridicaComponent } from './pages/cadastrar-pessoa-jurid
     FormsModule,
     ReactiveFormsModule,
     InputTextModule,
-    MessageModule
+    MessageModule,
+    AutoCompleteModule
   ],
   providers: [
     PessoaFisicaService,

@@ -22,9 +22,9 @@ export class CadastrarPessoaFisicaComponent implements OnInit {
       idPessoaFisica: [''],
       dsNome: ['', Validators.required],
       dsCpf: ['', Validators.required],
-      dsTelefone: [''],
-      dsEmail: [''],
-      dtNasc: ['']
+      dsTelefone: [],
+      dsEmail: [],
+      dtNasc: []
     });
 
   }
