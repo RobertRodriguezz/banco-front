@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PessoaJuridicaService } from 'src/app/service/pessoa-juridica/pessoa-juridica.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pessoa-juridica',
@@ -6,26 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pessoa-juridica.component.css']
 })
 export class PessoaJuridicaComponent implements OnInit {
-  
-  pj: any[] = [
-  {
-    dsNomeFantasia:"robert",
-    dsRazaoSocial:"212125",
-    dsCnpj:"110-149-759-99",
-    dsEmail:'robertcastilhos',
 
-  },
-  {
-    cnpj:"00000000",
-    nome:"robert",
-    email:"ro@hotmail.com",
-  }
-];
-  constructor() { }
-  
+  pessoas: any[] = [];
+  constructor(private pessoaJuridicaService: PessoaJuridicaService,
+    private router: Router) { }
+
   ngOnInit() {
-    
-    
-        }
+    this.pessoaJuridicaService.findAll(pessoas => {
+      this.pessoas = pessoas;
+      console.log(this.pessoas);
+    });
+
+  }
+
+  novaPessoa() {
+    this.router.navigate(['cadastrar-pessoa-juridica']);
+  }
 
 }

@@ -1,23 +1,28 @@
-
-
-<h1 class="first">Basic</h1>
-<p-table [value]=pj>
-    <ng-template pTemplate="header">
-        <tr>
-            <!--dsNome dsRazaoSocial dsCNPJ dsTelefone-->
-            <th>CNPJ</th>
-            <th>Email</th>
-            <th>Nome</th>
-            
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-pj>  
-     <tr>
-            <td>{{pj.cnpj}}</td>
-            <td>{{pj.email}}</td>
-            <td>{{pj.nome}}</td>    
-        </tr>
-    </ng-template>
-</p-table>
-
-
+<p-panel>
+    <p-header>
+        <div class="ui-helper-clearfix">
+            <span class="ui-panel-title" >Pessoa Jurídica</span>
+            <button pButton (click)="novaPessoa()" label="Novo" icon="pi pi-check" class="float-right ui-button-raised ui-button-success"></button>
+        </div>
+    </p-header>
+    <p-table [value]=pessoas>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>CNPJ</th>
+                <th>Razão social</th>
+                <th>Nome Fantasia</th>
+                <th>Telefone</th>
+                <th>e-mail</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-pj>
+            <tr>
+                <td>{{pj.dsCnpj}}</td>
+                <td>{{pj.dsRazaoSocial}}</td>
+                <td>{{pj.dsNomeFantasia}}</td>
+                <td>{{pj.dsTelefone}}</td>
+                <td>{{pj.dsEmail}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-panel>

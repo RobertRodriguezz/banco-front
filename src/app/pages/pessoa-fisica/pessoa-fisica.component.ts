@@ -12,14 +12,12 @@ export class PessoaFisicaComponent implements OnInit {
   displayDialog: boolean;    
   pessoas : any[] = [];
 
-  constructor(private pessoafisica: PessoaFisicaService) {  }
+  constructor(private pessoaFisicaService: PessoaFisicaService) {  }
 
   ngOnInit() {
-    this.pessoafisica.findAll(pessoas => {
+    this.pessoaFisicaService.findAll(pessoas => {
       this.pessoas = pessoas;
         console.log(this.pessoas);
-    }, erro =>{
-
     });
   }
   showDialogToAdd() {    

@@ -1,3 +1,76 @@
-<p>
-  cadastrar-pessoa-juridica works!
-</p>
+<form name="form" [formGroup]="form" (ngSubmit)="salvar()">
+  <p-panel>
+    <p-header>
+      <div class="ui-helper-clearfix">
+        <span class="ui-panel-title">Pessoa Jurídica</span>
+        <button pButton (click)="voltar()" label="Voltar" icon="pi pi-check"
+          class="float-right ui-button-raised ui-button-success"></button>
+      </div>
+    </p-header>
+
+
+
+    <div class="ui-g ui-fluid">
+      <div class="ui-g-12 ui-md-4">
+        <div class="u-inputgroup ">
+          <label for="dsCnpj">CNPJ</label>
+          <div class="u-inputgroup input-group app-input">
+            <input id="dsCnpj" type="text" placeholder="CNPJ" pInputText formControlName="dsCnpj">
+            <app-error-msg [control]="form.get('dsCnpj')" label="CNPJ"></app-error-msg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui-g ui-fluid">
+      <div class="ui-g-12 ui-md-8">
+        <div class="u-inputgroup ">
+          <label for="dsRazaoSocial">Razão Social</label>
+          <div class="u-inputgroup input-group app-input">
+            <input id="dsRazaoSocial" type="text" placeholder="Razão Social" pInputText formControlName="dsRazaoSocial">
+            <app-error-msg [control]="form.get('dsRazaoSocial')" label="Razão Social"></app-error-msg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui-g ui-fluid">
+      <div class="ui-g-12 ui-md-8">
+        <div class="u-inputgroup ">
+          <label for="dsNomeFantasia">Nome Fantasia</label>
+          <div class="u-inputgroup input-group app-input">
+            <input id="dsNomeFantasia" type="text" placeholder="Nome Fantasia" pInputText formControlName="dsNomeFantasia">
+            <app-error-msg [control]="form.get('dsNomeFantasia')" label="Nome Fantasia"></app-error-msg>
+          </div>
+        </div>
+      </div>
+    </div> 
+
+    <div class="ui-g ui-fluid">
+      <div class="ui-g-12 ui-md-4">
+        <div class="u-inputgroup ">
+          <label for="dsEmail">E-mail</label>
+          <div class="u-inputgroup input-group app-input">
+            <input id="dsEmail" type="text" placeholder="E-mail" pInputText formControlName="dsEmail">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui-g ui-fluid">
+      <div class="ui-g-12 ui-md-4">
+        <div class="u-inputgroup ">
+          <label for="dsTelefone">Telefone</label>
+          <div class="u-inputgroup input-group app-input">
+            <input id="dsTelefone" type="text" placeholder="Telefone" pInputText formControlName="dsTelefone">
+          </div>
+        </div>
+      </div>
+    </div>
+    <p-footer>
+      <button pButton type="submit" label="Salvar" icon="pi pi-check"
+        class="ui-button-raised ui-button-success" ></button>
+    </p-footer>
+
+  </p-panel>
+</form>

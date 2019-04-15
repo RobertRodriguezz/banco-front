@@ -1,13 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
-import { FormsModule } from '@angular/forms';
+import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 // primeng components
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {PanelModule} from 'primeng/panel';
 import {TableModule} from 'primeng/table';
 import {ButtonModule} from 'primeng/button';
 import {DialogModule} from 'primeng/dialog';
+import {InputTextModule} from 'primeng/inputtext';
+import {MessageModule} from 'primeng/message';
 
 // app components
 import { AppComponent } from './app.component';
@@ -16,6 +18,7 @@ import { MenuComponent } from './components/template/menu/menu.component';
 import { TemplateComponent } from './components/template/template/template.component';
 import { AuthGuard } from './routes/authguard/auth.guard';
 import { HomeComponent } from './components/template/home/home.component';
+import { ErrorMsgComponent } from './components/messages/error-msg/error-msg.component';
 //router
 import { routing } from './routes/app-route';
 
@@ -49,7 +52,8 @@ import { CadastrarPessoaJuridicaComponent } from './pages/cadastrar-pessoa-jurid
     DepositoComponent,
     SaqueComponent,
     CadastrarPessoaFisicaComponent,
-    CadastrarPessoaJuridicaComponent
+    CadastrarPessoaJuridicaComponent,
+    ErrorMsgComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,10 @@ import { CadastrarPessoaJuridicaComponent } from './pages/cadastrar-pessoa-jurid
     TableModule,
     ButtonModule,
     DialogModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    InputTextModule,
+    MessageModule
   ],
   providers: [
     PessoaFisicaService,
