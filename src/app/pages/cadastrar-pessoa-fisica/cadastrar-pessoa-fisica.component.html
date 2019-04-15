@@ -1,3 +1,64 @@
-<p>
-  cadastrar-pessoa-fisica works!
-</p>
+<form name="form" [formGroup]="form" (ngSubmit)="salvar()">
+  <p-panel>
+    <p-header>
+      <div class="ui-helper-clearfix">
+        <span class="ui-panel-title">Pessoa Física</span>
+        <button pButton (click)="voltar()" label="Voltar" icon="pi pi-check"
+          class="float-right ui-button-raised ui-button-success"></button>
+      </div>
+    </p-header>
+
+
+
+    <div class="ui-g ui-fluid">
+      <div class="ui-g-12 ui-md-4">
+        <div class="u-inputgroup ">
+          <label for="dsCpf">CPF</label>
+          <div class="u-inputgroup input-group app-input">
+            <input id="dsCpf" type="text" placeholder="CPF" pInputText formControlName="dsCpf">
+            <app-error-msg [control]="form.get('dsCpf')" label="CPF"></app-error-msg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui-g ui-fluid">
+      <div class="ui-g-12 ui-md-8">
+        <div class="u-inputgroup ">
+          <label for="dsNome">Nome</label>
+          <div class="u-inputgroup input-group app-input">
+            <input id="dsNome" type="text" placeholder="Nome" pInputText formControlName="dsNome">
+            <app-error-msg [control]="form.get('dsNome')" label="Nome"></app-error-msg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui-g ui-fluid">
+      <div class="ui-g-12 ui-md-4">
+        <div class="u-inputgroup ">
+          <label for="dsEmail">E-mail</label>
+          <div class="u-inputgroup input-group app-input">
+            <input id="dsEmail" type="text" placeholder="E-mail" pInputText formControlName="dsEmail">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui-g ui-fluid">
+      <div class="ui-g-12 ui-md-4">
+        <div class="u-inputgroup ">
+          <label for="dsTelefone">Telefone</label>
+          <div class="u-inputgroup input-group app-input">
+            <input id="dsTelefone" type="text" placeholder="Telefone" pInputText formControlName="dsTelefone">
+          </div>
+        </div>
+      </div>
+    </div>
+    <p-footer>
+      <button pButton type="submit" label="Salvar" icon="pi pi-check"
+        class="ui-button-raised ui-button-success"></button>
+    </p-footer>
+
+  </p-panel>
+</form>

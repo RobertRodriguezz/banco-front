@@ -16,4 +16,12 @@ export class PessoaFisicaService {
       });
   }
 
+  save(pessoa, success) {
+    const observe = 'response';
+    this.http.post(this.url, pessoa, { observe })
+      .subscribe(() => {
+        success();
+      });
+  }
+
 }

@@ -1,75 +1,30 @@
-<!-- <h3 class="first">Resumos</h3> -->
-<button (click)="showDialogToAdd()"  pButton type="button" label="Cadastrar Usuário" class="btn-cadastrar ui-button-raised ui-button-success"></button>
-<hr class="space"> 
-<p-table [value] = "pessoas" [responsive]="true">
-    <ng-template pTemplate="header">
-        <tr>
-          <!-- dsNome dtNasc dsCpf dsEmail dsTelefone -->
-            <th>Nome</th>
-            <th>Nascimento</th>
-            <th>CPF</th>
-            <th>Email</th>
-            <th>Telefone</th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-pessoa >
-        <tr>
-            <td>{{pessoa.dsNome}}</td>
-            <td>{{pessoa.dtNasc}}</td>
-            <td>{{pessoa.dsCpf}}</td>
-            <td>{{pessoa.dsEmail}}</td>
-            <td>{{pessoa.dsTelefone}}</td>
-        </tr>
-    </ng-template>
-</p-table>
-
-<p-dialog header="Car Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true"  [style]="{width: '300px'}">
-    <div class="ui-g ui-fluid">
-        <div class="ui-g-12">
-            <div class="ui-g-4">
-                <label for="nome">Nome</label>
-            </div>
-            <div class="ui-g-8">
-                <input pInputText id="nome" />
-            </div>
+<p-panel>
+    <p-header>
+        <div class="ui-helper-clearfix">
+            <span class="ui-panel-title">Pessoa Física</span>
+            <button pButton (click)="novaPessoa()" label="Novo" icon="pi pi-check"
+                class="float-right ui-button-raised ui-button-success"></button>
         </div>
-        <div class="ui-g-12">
-            <div class="ui-g-4">
-                <label for="nascimento">Nascimento</label>
-            </div>
-            <div class="ui-g-8">
-                <input pInputText id="nascimento"/>
-            </div>
-        </div>
-        <div class="ui-g-12">
-            <div class="ui-g-4">
-                <label for="cpf">CPF</label>
-            </div>
-            <div class="ui-g-8">
-                <input pInputText id="cpf"/>
-            </div>
-        </div>
-        <div class="ui-g-12">
-            <div class="ui-g-4">
-                <label for="email">Email</label>
-            </div>
-            <div class="ui-g-8">
-                <input pInputText id="email"/>
-            </div>
-        </div>
-        <div class="ui-g-12">
-            <div class="ui-g-4">
-                <label for="telefone">Telefone</label>
-            </div>
-            <div class="ui-g-8">
-                <input pInputText id="telefone"/>
-            </div>
-        </div>
-    </div>
-    <p-footer>
-        <div class="ui-dialog-buttonpane ui-helper-clearfix">
-            <button type="button" pButton icon="fa fa-close" (click)="delete()" label="Delete"></button>
-            <button type="button" pButton icon="fa fa-check" (click)="save()" label="Save"></button>
-        </div>
-    </p-footer>
-</p-dialog>
+    </p-header>
+    <p-table [value]="pessoas" [responsive]="true">
+        <ng-template pTemplate="header">
+            <tr>
+                <!-- dsNome dtNasc dsCpf dsEmail dsTelefone -->
+                <th>Nome</th>
+                <th>Nascimento</th>
+                <th>CPF</th>
+                <th>Email</th>
+                <th>Telefone</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-pessoa>
+            <tr>
+                <td>{{pessoa.dsNome}}</td>
+                <td>{{pessoa.dtNasc}}</td>
+                <td>{{pessoa.dsCpf}}</td>
+                <td>{{pessoa.dsEmail}}</td>
+                <td>{{pessoa.dsTelefone}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-panel>

@@ -18,12 +18,12 @@ export class PessoaJuridicaService {
       });
   }
 
-  save(pessoa,success){
+  save(pessoa, success) {
     const observe = 'response';
-    this.http.post(this.url,pessoa,{observe})
-    .subscribe(() => {
-      success();
-    });
+    this.http.post(this.url, pessoa, { observe })
+      .subscribe(() => {
+        success();
+      });
   }
 
 }
