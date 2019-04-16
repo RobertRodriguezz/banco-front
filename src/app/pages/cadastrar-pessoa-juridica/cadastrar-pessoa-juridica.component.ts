@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 import { PessoaJuridicaService } from 'src/app/service/pessoa-juridica/pessoa-juridica.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
@@ -14,6 +14,7 @@ export class CadastrarPessoaJuridicaComponent implements OnInit {
 
   constructor(private pessoaJuridicaService: PessoaJuridicaService,
     private router: Router,
+    private route: ActivatedRoute,
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -26,6 +27,22 @@ export class CadastrarPessoaJuridicaComponent implements OnInit {
       dsEmail: ['']
     });
 
+    this.route.params.subscribe(params => {
+      if (params) {
+        this.setValues(params);
+      }
+    });
+  }
+
+  setValues(value){
+    this.form.setValue({
+      idPessoaJuridica: value.idPessoaJuridica,
+      dsNomeFantasia: value.dsNomeFantasia,
+      dsRazaoSocial: value.dsRazaoSocial,
+      dsCnpj: value.dsCnpj,
+      dsTelefone: value.dsCnpj,
+      dsEmail: value.dsCnpj
+    });
   }
 
   voltar() {

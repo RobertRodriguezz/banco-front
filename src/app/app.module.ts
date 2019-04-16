@@ -11,6 +11,7 @@ import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { MessageModule } from 'primeng/message';
 import { AutoCompleteModule } from 'primeng/autocomplete';
+import { TooltipModule } from 'primeng/tooltip';
 
 // app components
 import { AppComponent } from './app.component';
@@ -74,7 +75,8 @@ import { GerarContaDialogComponent } from './dialogs/gerar-conta-dialog/gerar-co
     ReactiveFormsModule,
     InputTextModule,
     MessageModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    TooltipModule
   ],
   providers: [
     PessoaFisicaService,

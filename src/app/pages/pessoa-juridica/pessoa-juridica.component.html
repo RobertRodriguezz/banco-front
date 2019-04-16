@@ -25,8 +25,11 @@
                 <td>{{pessoa.dsTelefone}}</td>
                 <td>{{pessoa.dsEmail}}</td>
                 <td style="text-align: center">
-                    <a (click)="openGerarContaDialog(pessoa)">
+                    <a (click)="openGerarContaDialog(pessoa)" pTooltip="Gerar conta" tooltipPosition="top">
                         <span class="pi pi-replay"></span>
+                    </a>
+                    <a (click)="alterar(pessoa)" pTooltip="Alterar" tooltipPosition="top">
+                        <span class="pi pi-pencil"></span>
                     </a>
                 </td>
             </tr>

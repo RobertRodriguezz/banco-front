@@ -42,5 +42,9 @@ export class PessoaFisicaComponent implements OnInit {
 
   }
 
+  alterar(pessoa){
+    this.router.navigate(['cadastrar-pessoa-fisica',pessoa]);
+  }
+
 
 }

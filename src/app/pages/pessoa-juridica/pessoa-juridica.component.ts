@@ -44,4 +44,8 @@ export class PessoaJuridicaComponent implements OnInit {
 
   }
 
+  alterar(pessoa){
+    this.router.navigate(['cadastrar-pessoa-fisica',pessoa]);
+  }
+
 }

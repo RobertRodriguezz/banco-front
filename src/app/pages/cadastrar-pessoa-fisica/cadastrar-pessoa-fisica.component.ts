@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PessoaFisicaService } from 'src/app/service/pessoa-fisica/pessoa-fisica.service';
 
@@ -10,11 +10,12 @@ import { PessoaFisicaService } from 'src/app/service/pessoa-fisica/pessoa-fisica
 })
 export class CadastrarPessoaFisicaComponent implements OnInit {
 
-  
+
   form: FormGroup;
 
   constructor(private pessoaFisicaService: PessoaFisicaService,
     private router: Router,
+    private route: ActivatedRoute,
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -27,8 +28,24 @@ export class CadastrarPessoaFisicaComponent implements OnInit {
       dtNasc: []
     });
 
+    this.route.params.subscribe(params => {
+      if (params) {
+        this.setValues(params);
+      }
+    });
+
   }
 
+  setValues(value) {
+    this.form.setValue({
+      idPessoaFisica: value.idPessoaFisica,
+      dsNome: value.dsNome,
+      dsCpf: value.dsCpf,
+      dsTelefone: value.dsTelefone,
+      dsEmail: value.dsEmail,
+      dtNasc: value.dtNasc
+    });
+  }
   voltar() {
     this.router.navigate(['pessoa-fisica']);
   }

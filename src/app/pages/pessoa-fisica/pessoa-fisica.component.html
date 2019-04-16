@@ -26,13 +26,17 @@
                 <td>{{pessoa.dsEmail}}</td>
                 <td>{{pessoa.dsTelefone}}</td>
                 <td style="text-align: center">
-                    <a (click)="openGerarContaDialog(pessoa)">
+                    <a (click)="openGerarContaDialog(pessoa)" pTooltip="Gerar conta" tooltipPosition="top">
                         <span class="pi pi-replay"></span>
+                    </a>
+                    <a (click)="alterar(pessoa)" pTooltip="Alterar" tooltipPosition="top">
+                        <span class="pi pi-pencil"></span>
                     </a>
                 </td>
             </tr>
         </ng-template>
     </p-table>
 </p-panel>
-<app-gerar-conta-dialog [(display)]="exibeGeraConta" title="Gerar conta pessoa física" (gerarConta)="gerarConta($event)">
+<app-gerar-conta-dialog [(display)]="exibeGeraConta" title="Gerar conta pessoa física"
+    (gerarConta)="gerarConta($event)">
 </app-gerar-conta-dialog>
