@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
+import { LoadingService } from '../../services/loading-service/loading.service';
 
 @Component({
   selector: 'app-template',
@@ -9,12 +10,14 @@ import { KeycloakService } from 'keycloak-angular';
 export class TemplateComponent implements OnInit {
   
   title = 'app';
+  loading = false;
 
-  constructor(private keycloakService: KeycloakService) { }
+  constructor(private keycloakService: KeycloakService,
+    public loadingService: LoadingService) { }
 
   ngOnInit() {
+
   }
- 
 
   mobileMenuActive: boolean;
 

@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
-import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 // primeng components
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PanelModule } from 'primeng/panel';
@@ -12,6 +13,9 @@ import { InputTextModule } from 'primeng/inputtext';
 import { MessageModule } from 'primeng/message';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { TooltipModule } from 'primeng/tooltip';
+import { BlockUIModule } from 'primeng/blockui';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/components/common/messageservice';
 
 // app components
 import { AppComponent } from './app.component';
@@ -21,6 +25,9 @@ import { TemplateComponent } from './components/template/template/template.compo
 import { AuthGuard } from './routes/authguard/auth.guard';
 import { HomeComponent } from './components/template/home/home.component';
 import { ErrorMsgComponent } from './components/messages/error-msg/error-msg.component';
+import { HttpConfigInterceptor } from './components/interceptors/http-config.interceptor';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+
 //router
 import { routing } from './routes/app-route';
 
@@ -35,7 +42,6 @@ import { PessoaFisicaComponent } from './pages/pessoa-fisica/pessoa-fisica.compo
 import { PessoaJuridicaComponent } from './pages/pessoa-juridica/pessoa-juridica.component';
 import { DepositoComponent } from './pages/deposito/deposito.component';
 import { SaqueComponent } from './pages/saque/saque.component';
-import { PessoaFisicaService } from './service/pessoa-fisica/pessoa-fisica.service';
 import { CadastrarPessoaFisicaComponent } from './pages/cadastrar-pessoa-fisica/cadastrar-pessoa-fisica.component';
 import { CadastrarPessoaJuridicaComponent } from './pages/cadastrar-pessoa-juridica/cadastrar-pessoa-juridica.component';
 import { ContaComponent } from './pages/conta/conta.component';
@@ -76,21 +82,30 @@ import { GerarContaDialogComponent } from './dialogs/gerar-conta-dialog/gerar-co
     InputTextModule,
     MessageModule,
     AutoCompleteModule,
-    TooltipModule
+    TooltipModule,
+    BlockUIModule,
+    ProgressSpinnerModule,
+    ToastModule
   ],
   providers: [
-    PessoaFisicaService,
     {
       provide: APP_INITIALIZER,
       useFactory: initializer,
       multi: true,
-      deps: [KeycloakService],    
-      
-    },{
+      deps: [KeycloakService]
+
+    },
+   /* {
       provide: HTTP_INTERCEPTORS,
       useClass: KeycloakBearerInterceptor,
       multi: true
+    },*/
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpConfigInterceptor,
+      multi: true
     },
+    MessageService,
     AuthGuard
   ],
   bootstrap: [AppComponent]

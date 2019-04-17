@@ -6,7 +6,8 @@
                 class="float-right ui-button-raised ui-button-success"></button>
         </div>
     </p-header>
-    <p-table [value]=pessoas>
+    <p-table [value]=pessoas [responsive]="true" 
+    [paginator]="true" [rows]="10" [selectionMode]="single">
         <ng-template pTemplate="header">
             <tr>
                 <th>CNPJ</th>
@@ -18,7 +19,7 @@
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-pessoa>
-            <tr>
+            <tr [pSelectableRow]="pessoa">
                 <td>{{pessoa.dsCnpj}}</td>
                 <td>{{pessoa.dsRazaoSocial}}</td>
                 <td>{{pessoa.dsNomeFantasia}}</td>

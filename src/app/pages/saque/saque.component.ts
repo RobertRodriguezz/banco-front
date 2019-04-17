@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ContaService } from 'src/app/service/conta/conta.service';
 import { ContaSaidaService } from 'src/app/service/conta-saida/conta-saida.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-saque',
@@ -16,7 +17,8 @@ export class SaqueComponent implements OnInit {
 
   constructor(private contaSaidaService: ContaSaidaService,
     private contaService: ContaService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private messageService: MessageService) { }
 
     ngOnInit() {
       this.form = this.formBuilder.group({
@@ -43,6 +45,7 @@ export class SaqueComponent implements OnInit {
         vrOperacao: this.form.value.vrOperacao
       }
       this.contaSaidaService.sacar(deposito, () => {
+        this.messageService.add({severity:'success', detail:'Saque de R$ '+this.form.value.vrOperacao+',00 efetuado com sucesso!'});
         this.form.reset();
       });
     }

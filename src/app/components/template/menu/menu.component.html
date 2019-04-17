@@ -1,4 +1,5 @@
 <div class="layout-sidebar" [ngClass]="{'layout-sidebar-active':template.mobileMenuActive}">
+    <p-toast life="5000"></p-toast>
   <ul class="layout-menu" (click)="template.hideMobileMenu($event)">
     <li>
       <a [routerLink]="['/home']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">

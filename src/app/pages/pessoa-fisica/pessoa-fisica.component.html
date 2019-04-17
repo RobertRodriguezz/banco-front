@@ -6,11 +6,12 @@
                 class="float-right ui-button-raised ui-button-success"></button>
         </div>
     </p-header>
-    <p-table [value]="pessoas" [responsive]="true">
+    <p-table [value]="pessoas" [responsive]="true" 
+    [paginator]="true" [rows]="10" [selectionMode]="single">
         <ng-template pTemplate="header">
             <tr>
                 <!-- dsNome dtNasc dsCpf dsEmail dsTelefone -->
-                <th>Nome</th>
+                <th sortField="dsNome" >Nome</th>
                 <th>Nascimento</th>
                 <th>CPF</th>
                 <th>Email</th>
@@ -19,7 +20,7 @@
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-pessoa>
-            <tr>
+            <tr [pSelectableRow]="pessoa">
                 <td>{{pessoa.dsNome}}</td>
                 <td>{{pessoa.dtNasc}}</td>
                 <td>{{pessoa.dsCpf}}</td>

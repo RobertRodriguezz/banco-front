@@ -4,7 +4,7 @@
       <span class="ui-panel-title">Contas</span>
     </div>
   </p-header>
-  <p-table [value]="contas" [responsive]="true">
+  <p-table [value]="contas" [responsive]="true" [paginator]="true" [rows]="10" [selectionMode]="single">
     <ng-template pTemplate="header">
       <tr>
         <!-- dsNome dtNasc dsCpf dsEmail dsTelefone -->
@@ -18,7 +18,7 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-conta>
-      <tr>
+      <tr [pSelectableRow]="conta">
         <td>{{conta.nrConta}}</td>
         <td>{{conta.dsCpfCnpj}}</td>
         <td>{{conta.dsPessoa}}</td>

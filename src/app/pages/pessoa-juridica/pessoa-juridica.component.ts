@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PessoaJuridicaService } from 'src/app/service/pessoa-juridica/pessoa-juridica.service';
 import { Router } from '@angular/router';
 import { ContaService } from 'src/app/service/conta/conta.service';
+import { MessageService } from 'primeng/api';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class PessoaJuridicaComponent implements OnInit {
 
   constructor(private pessoaJuridicaService: PessoaJuridicaService,
     private router: Router,
-    private contaService: ContaService) { }
+    private contaService: ContaService,
+    private messageService: MessageService) { }
 
   ngOnInit() {
     this.pessoaJuridicaService.findAll(pessoas => {
@@ -39,13 +41,14 @@ export class PessoaJuridicaComponent implements OnInit {
   gerarConta(param) {
     this.contaService.createPessoaJuridica(param.idAgencia.idAgencia,
       this.pessoaSelecionada.idPessoaJuridica, () => {
+        this.messageService.add({severity:'success', detail:'Conta gerada com sucesso!'});
         this.exibeGeraConta = false;
       });
 
   }
 
   alterar(pessoa){
-    this.router.navigate(['cadastrar-pessoa-fisica',pessoa]);
+    this.router.navigate(['cadastrar-pessoa-juridica',pessoa]);
   }
 
 }

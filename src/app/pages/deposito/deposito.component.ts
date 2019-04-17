@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ContaService } from 'src/app/service/conta/conta.service';
 import { ContaEntradaService } from 'src/app/service/conta-entrada/conta-entrada.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-deposito',
@@ -15,7 +16,8 @@ export class DepositoComponent implements OnInit {
   contas = [];
   constructor(private formBuilder: FormBuilder,
     private contaService: ContaService,
-    private contaEntradaService: ContaEntradaService) { }
+    private contaEntradaService: ContaEntradaService,
+    private messageService: MessageService) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -42,6 +44,7 @@ export class DepositoComponent implements OnInit {
       vrOperacao: this.form.value.vrOperacao
     }
     this.contaEntradaService.depositar(deposito, () => {
+      this.messageService.add({severity:'success', detail:'Depósito de R$ '+this.form.value.vrOperacao+',00 efetuado com sucesso!'});
       this.form.reset();
     });
   }

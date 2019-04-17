@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PessoaFisicaService } from 'src/app/service/pessoa-fisica/pessoa-fisica.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-cadastrar-pessoa-fisica',
@@ -16,7 +17,8 @@ export class CadastrarPessoaFisicaComponent implements OnInit {
   constructor(private pessoaFisicaService: PessoaFisicaService,
     private router: Router,
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private messageService: MessageService) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -29,7 +31,7 @@ export class CadastrarPessoaFisicaComponent implements OnInit {
     });
 
     this.route.params.subscribe(params => {
-      if (params) {
+      if (params && params.idPessoaFisica) {
         this.setValues(params);
       }
     });
@@ -55,6 +57,7 @@ export class CadastrarPessoaFisicaComponent implements OnInit {
       return;
 
     this.pessoaFisicaService.save(this.form.value, () => {
+      this.messageService.add({severity:'success', detail:'Pessoa salva com sucesso!'});
       this.voltar();
     });
   }

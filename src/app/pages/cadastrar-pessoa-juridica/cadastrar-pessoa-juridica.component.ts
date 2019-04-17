@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { PessoaJuridicaService } from 'src/app/service/pessoa-juridica/pessoa-juridica.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-cadastrar-pessoa-juridica',
@@ -15,7 +16,8 @@ export class CadastrarPessoaJuridicaComponent implements OnInit {
   constructor(private pessoaJuridicaService: PessoaJuridicaService,
     private router: Router,
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private messageService: MessageService) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -28,7 +30,7 @@ export class CadastrarPessoaJuridicaComponent implements OnInit {
     });
 
     this.route.params.subscribe(params => {
-      if (params) {
+      if (params && params.idPessoaJuridica) {
         this.setValues(params);
       }
     });
@@ -54,6 +56,7 @@ export class CadastrarPessoaJuridicaComponent implements OnInit {
       return;
 
     this.pessoaJuridicaService.save(this.form.value, () => {
+      this.messageService.add({severity:'success', detail:'Pessoa salva com sucesso!'});
       this.voltar();
     });
   }
