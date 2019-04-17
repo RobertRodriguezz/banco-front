@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ContaService } from 'src/app/service/conta/conta.service';
 import { ContaEntradaService } from 'src/app/service/conta-entrada/conta-entrada.service';
 import { MessageService } from 'primeng/api';
+import { BreadcrumbService } from 'src/app/components/services/breadcrumb/breadcrumb.service';
 
 @Component({
   selector: 'app-deposito',
@@ -17,26 +18,28 @@ export class DepositoComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private contaService: ContaService,
     private contaEntradaService: ContaEntradaService,
-    private messageService: MessageService) { }
+    private messageService: MessageService,
+    private breadcrumbService: BreadcrumbService) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
       idConta: ['', Validators.required],
       vrOperacao: ['', Validators.required]
     });
+    this.breadcrumbService.items = [
+      {label: 'Depósito'}
+    ];
     this.contaService.findAll(contas => {
       if (contas) {
         contas.forEach(conta => {
           conta.ds = conta.nrConta + ' (' + conta.dsPessoa + ')';
         });
       }
-      console.log(contas);
       this.contas = contas;
     });
   }
 
   salvar() {
-    console.log('1');
     if (this.form.invalid)
       return;
     let deposito = {

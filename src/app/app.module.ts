@@ -16,6 +16,8 @@ import { TooltipModule } from 'primeng/tooltip';
 import { BlockUIModule } from 'primeng/blockui';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/components/common/messageservice';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
 
 // app components
 import { AppComponent } from './app.component';
@@ -26,7 +28,7 @@ import { AuthGuard } from './routes/authguard/auth.guard';
 import { HomeComponent } from './components/template/home/home.component';
 import { ErrorMsgComponent } from './components/messages/error-msg/error-msg.component';
 import { HttpConfigInterceptor } from './components/interceptors/http-config.interceptor';
-import { ProgressSpinnerModule } from 'primeng/progressspinner';
+
 
 //router
 import { routing } from './routes/app-route';
@@ -85,7 +87,8 @@ import { GerarContaDialogComponent } from './dialogs/gerar-conta-dialog/gerar-co
     TooltipModule,
     BlockUIModule,
     ProgressSpinnerModule,
-    ToastModule
+    ToastModule,
+    BreadcrumbModule
   ],
   providers: [
     {

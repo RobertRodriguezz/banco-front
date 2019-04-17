@@ -34,6 +34,14 @@ body {
             padding: 10px 20px;
             position: relative;
 
+            .topbar-breadcrump{
+                position: fixed;
+                left: 250px;
+                width: 100%;
+                top: 10px;
+                background: #252d32 !important;
+                border-color: #252d32;
+            }
             .topbar-logo {
                 height: 40px;
                 vertical-align: middle;
@@ -152,7 +160,9 @@ body {
     }
     
 }
-
+span.ui-menuitem-text{
+    color: #848484 !important;
+}
 .card {
     border-radius: 3px;
     background: #ffffff;

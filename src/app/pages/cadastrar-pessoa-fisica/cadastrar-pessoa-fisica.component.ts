@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PessoaFisicaService } from 'src/app/service/pessoa-fisica/pessoa-fisica.service';
 import { MessageService } from 'primeng/api';
+import { BreadcrumbService } from 'src/app/components/services/breadcrumb/breadcrumb.service';
 
 @Component({
   selector: 'app-cadastrar-pessoa-fisica',
@@ -18,7 +19,8 @@ export class CadastrarPessoaFisicaComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private messageService: MessageService) { }
+    private messageService: MessageService,
+    private breadcrumbService: BreadcrumbService) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -29,7 +31,10 @@ export class CadastrarPessoaFisicaComponent implements OnInit {
       dsEmail: [],
       dtNasc: []
     });
-
+    this.breadcrumbService.items = [
+      {label: 'Pessoa Física'},
+      {label: 'Cadastro'}
+    ];
     this.route.params.subscribe(params => {
       if (params && params.idPessoaFisica) {
         this.setValues(params);

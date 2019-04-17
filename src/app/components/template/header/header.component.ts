@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TemplateComponent } from '../../template/template/template.component';
+import { MenuItem } from 'primeng/api';
+import { BreadcrumbService } from '../../services/breadcrumb/breadcrumb.service';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +10,13 @@ import { TemplateComponent } from '../../template/template/template.component';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public template : TemplateComponent) { }
+  home: MenuItem;
+
+  constructor(public template : TemplateComponent,
+    public breadcrumbService: BreadcrumbService) { }
 
   ngOnInit() {
+   this.home = {icon: 'pi pi-home'};
   }
 
 }

@@ -3,7 +3,7 @@ import { PessoaJuridicaService } from 'src/app/service/pessoa-juridica/pessoa-ju
 import { Router } from '@angular/router';
 import { ContaService } from 'src/app/service/conta/conta.service';
 import { MessageService } from 'primeng/api';
-
+import { BreadcrumbService } from 'src/app/components/services/breadcrumb/breadcrumb.service';
 
 @Component({
   selector: 'app-pessoa-juridica',
@@ -19,12 +19,15 @@ export class PessoaJuridicaComponent implements OnInit {
   constructor(private pessoaJuridicaService: PessoaJuridicaService,
     private router: Router,
     private contaService: ContaService,
-    private messageService: MessageService) { }
+    private messageService: MessageService,
+    private breadcrumbService: BreadcrumbService) { }
 
   ngOnInit() {
+    this.breadcrumbService.items = [
+      {label: 'Pessoa Jurídica'}
+    ];
     this.pessoaJuridicaService.findAll(pessoas => {
       this.pessoas = pessoas;
-      console.log(this.pessoas);
     });
 
   }

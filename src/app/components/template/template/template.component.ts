@@ -11,12 +11,14 @@ export class TemplateComponent implements OnInit {
   
   title = 'app';
   loading = false;
+  
+
 
   constructor(private keycloakService: KeycloakService,
     public loadingService: LoadingService) { }
 
   ngOnInit() {
-
+ 
   }
 
   mobileMenuActive: boolean;

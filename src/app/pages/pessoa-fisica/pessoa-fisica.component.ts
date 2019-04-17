@@ -3,8 +3,8 @@ import { PessoaFisicaService } from 'src/app/service/pessoa-fisica/pessoa-fisica
 import { Router } from '@angular/router';
 import { ContaService } from 'src/app/service/conta/conta.service';
 import { MessageService } from 'primeng/api';
+import { BreadcrumbService } from 'src/app/components/services/breadcrumb/breadcrumb.service';
 
-MessageService
 @Component({
   selector: 'app-pessoa-fisica',
   templateUrl: './pessoa-fisica.component.html',
@@ -21,9 +21,13 @@ export class PessoaFisicaComponent implements OnInit {
   constructor(private pessoaFisicaService: PessoaFisicaService,
     private router: Router,
     private contaService: ContaService,
-    private messageService: MessageService) { }
+    private messageService: MessageService,
+    private breadcrumbService: BreadcrumbService) { }
 
   ngOnInit() {
+    this.breadcrumbService.items = [
+      {label: 'Pessoa Física'}
+    ];
     this.pessoaFisicaService.findAll(pessoas => {
       this.pessoas = pessoas;
     });

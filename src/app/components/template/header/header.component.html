@@ -7,7 +7,9 @@
       <img src="assets/layout/images/logo.png" class="topbar-logo">
    
       <!--<a [routerLink]="['/documentation']" class="topbar-link" (click)="template.hideMobileMenu($event)">Get Started</a>-->
+      <p-breadcrumb styleClass="topbar-breadcrump" [model]="breadcrumbService.items" [home]="home"></p-breadcrumb>
     </div>
+    
   </div>
   
 </header>
